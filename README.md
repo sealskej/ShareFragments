@@ -11,8 +11,8 @@ If you want to share data using Fragments, you have no ready to use way. That's 
 
 I would like to encourage all Android developers to prefer full-screen to nasty dialogs. More explanation by Roman Nurik [here][3].
 
-![List Share](images/device-2014-02-02-224427.png =250x)
-![List Share](images/device-2014-02-02-224441.png =250x)
+![List Share](images/device-2014-02-02-224427_250x.png)
+![List Share](images/device-2014-02-02-224441_250x.png)
 
 License
 =======
