@@ -50,9 +50,6 @@ public abstract class BaseShareFragment extends Fragment {
 
     protected abstract AbsListView createAdapterView();
 
-    public BaseShareFragment() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mAbsListView = createAdapterView();

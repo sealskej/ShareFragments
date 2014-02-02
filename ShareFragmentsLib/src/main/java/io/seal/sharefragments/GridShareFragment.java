@@ -5,6 +5,9 @@ import android.widget.GridView;
 
 public class GridShareFragment extends BaseShareFragment {
 
+    public GridShareFragment() {
+    }
+
     @Override
     protected AbsListView createAdapterView() {
         GridView gridView = new GridView(getActivity());
