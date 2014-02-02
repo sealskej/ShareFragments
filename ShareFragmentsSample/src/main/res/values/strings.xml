@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ShareFragments Sample</string>
+    <string name="list_share">List Share</string>
+    <string name="grid_share">Grid Share</string>
+</resources>
