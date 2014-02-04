@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 7
         targetSdkVersion 19
-        versionCode 1
-        versionName "1.0"
+        versionCode project.versionCode
+        versionName project.versionName
     }
 
     compileOptions {
@@ -19,5 +19,62 @@ android {
 
 dependencies {
 	compile 'com.android.support:support-v4:19.0.0'
-	compile 'com.android.support:appcompat-v7:19.0.0'
+}
+
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+version = project.versionName
+group = "io.seal.sharefragments"
+
+configurations {
+    archives {
+        extendsFrom configurations.default
+    }
+}
+
+signing {
+    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+}
+
+uploadArchives {
+    configuration = configurations.archives
+    repositories.mavenDeployer {
+        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+        repository(url: sonatypeRepo) {
+            authentication(userName: sonatypeUsername,
+                    password: sonatypePassword)
+        }
+
+        pom.project {
+            name 'ShareFragments'
+            packaging 'aar'
+            description 'Share simple data to other apps using Android Fragments'
+            url 'https://github.com/sealskej/ShareFragments'
+
+            scm {
+                url 'scm:git@github.com:sealskej/ShareFragments.git'
+                connection 'scm:git@github.com:sealskej/ShareFragments.git'
+                developerConnection 'scm:git@github.com:sealskej/ShareFragments.git'
+            }
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+
+            developers {
+                developer {
+                    id 'sealskej'
+                    name 'Ondřej Kroupa'
+                    email 'ondra@seal.io'
+                }
+            }
+        }
+    }
 }

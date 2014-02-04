@@ -13,7 +13,15 @@ I would like to encourage all Android developers to prefer full-screen to nasty 
 
 ![List Share](images/device-2014-02-02-224427_sanitized_250x.png)
 
-![List Share](images/device-2014-02-02-224441_sanitized_250x.png)
+![Grid Share](images/device-2014-02-02-224441_sanitized_250x.png)
+
+Usage
+=====
+``` groovy
+dependencies {
+    compile 'io.seal.sharefragments:ShareFragmentsLib:1.0.0@aar'
+}
+```
 
 License
 =======
